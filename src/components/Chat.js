@@ -72,8 +72,8 @@ export default function Chat(props) {
 
   useEffect(() => {
     fetchUsers();
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080/';
-    const socket = new SockJS(apiUrl + "chat");
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    const socket = new SockJS(apiUrl + "/chat");
     const client = new Client({
       webSocketFactory: () => socket,
       beforeConnect: () => {

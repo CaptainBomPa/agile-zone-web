@@ -63,8 +63,8 @@ export default function ChangeAvatarTab({ userAvatar, setUserAvatar, token }) {
     formData.append("image", file);
 
     setLoading(true);
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080/';
-    fetch(apiUrl + "api/user/avatar", {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    fetch(apiUrl + "/api/user/avatar", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

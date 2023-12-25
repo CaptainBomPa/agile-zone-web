@@ -64,9 +64,9 @@ export default function Register(props) {
       password: password,
     };
 
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080/';
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     axios
-      .post(apiUrl + "8080/api/user", registerRequest)
+      .post(apiUrl + "/api/user", registerRequest)
       .then((response) => {
         if (response.status === 200) {
           showAutoHideAlert(
