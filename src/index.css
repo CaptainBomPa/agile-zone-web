@@ -1,0 +1,104 @@
+body {
+  margin: 0
+}
+
+.custom-scrollbar-text-field textarea {
+  overflow: auto !important;;
+}
+
+.custom-scrollbar .custom-scrollbar-table {
+  overflow: auto;
+  height: 800px;
+}
+
+.custom-scrollbar-table {
+  overflow: auto;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+.custom-scrollbar-table::-webkit-scrollbar {
+  height: 10px;
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #9723ef;
+  border-radius: 10px;
+}
+
+.custom-scrollbar-table::-webkit-scrollbar-thumb {
+  background-color: #9723ef;
+  border-radius: 10px;
+}
+
+.custom-scrollbar-text-field textarea::-webkit-scrollbar  {
+  width: 10px !important;;
+  background-color: transparent !important;;
+}
+
+.custom-scrollbar-text-field textarea::-webkit-scrollbar-thumb {
+  background-color: #9723ef !important;;
+  border-radius: 10px !important;; 
+}
+
+.Mui-selected.light-mode {
+  background-color: #f1dfff !important;
+}
+
+/* Dla trybu ciemnego */
+.Mui-selected.dark-mode {
+  background-color: #6b02bd !important;
+}
+
+.table {
+  table-layout: fixed;
+
+  .tableHead{
+    user-select: none;
+  }
+  .tableCell {
+    border-top: 1px dashed #E0E0E0 !important;
+    border-right: 1px dashed #E0E0E0 !important;
+    /* padding: 10px 0; */
+    padding: 16px, 0px, 0px, 0px;
+    &.resizable{
+      position: relative;
+    }
+    &.emptyCell{
+      width: "auto"
+    }
+  }
+ 
+  .resizeLine{
+    position: absolute; 
+    height: 100%;
+    width: 4px;
+    top: 0;
+    right: -2px;
+    cursor: col-resize;
+    &:hover{
+      background-color: #9723ef;
+    }
+    &:active {
+      background-color: #9723ef;
+
+    }
+  }
+  
+}
+
+.tableCell {
+  border: 1px dashed #E0E0E0 !important;
+  /* padding: 10px 0; */
+  padding: 16px, 16px, 16px, 16px;
+  &.resizable{
+    position: relative;
+  }
+  &.emptyCell{
+    width: "auto"
+  }
+}
