@@ -20,6 +20,7 @@ export async function getBacklogForCurrentUser() {
 
 export async function getBacklogForTeam(teamId) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.get(
       apiUrl + `/api/iteration/backlog/teamId/${teamId}`
     );
@@ -35,6 +36,7 @@ export async function getBacklogForTeam(teamId) {
 
 export async function getBacklogProject() {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.get(
       apiUrl + `/api/iteration/backlog/project`
     );

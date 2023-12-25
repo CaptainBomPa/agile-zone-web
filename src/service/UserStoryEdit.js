@@ -107,6 +107,7 @@ export async function updateStory(story) {
 
 export async function addUserStory(userStory) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.post(
       apiUrl + "/api/userStory",
       userStory
