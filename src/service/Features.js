@@ -3,9 +3,10 @@ import axios from "axios";
 export default function Features() {}
 
 export async function getAllWithStories() {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
   try {
     const response = await axios.get(
-      "http://10.0.1.64:8080/api/feature/stories"
+      apiUrl + "/api/feature/stories"
     );
     if (response.status === 200) {
       return response.data;
@@ -18,9 +19,10 @@ export async function getAllWithStories() {
 }
 
 export async function addNewFeature(feature) {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
   try {
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/feature",
+      apiUrl + "/api/feature",
         feature
     );
     if (response.status === 200) {

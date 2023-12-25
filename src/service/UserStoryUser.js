@@ -4,8 +4,9 @@ export default function UserStoryUser() {}
 
 export async function getUserStoriesIteration() {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.get(
-      "http://10.0.1.64:8080/api/iteration/current"
+      apiUrl + "/api/iteration/current"
     );
     const data = response.data;
     return data;
@@ -16,8 +17,9 @@ export async function getUserStoriesIteration() {
 
 export async function getUserStoriesIterationTeam(teamId, iterationId) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.get(
-      `http://10.0.1.64:8080/api/iteration/team/${teamId}/iteration/${iterationId}`
+      apiUrl + `/api/iteration/team/${teamId}/iteration/${iterationId}`
     );
     if (response.status === 200) {
       return response.data;
@@ -31,8 +33,9 @@ export async function getUserStoriesIterationTeam(teamId, iterationId) {
 
 export async function deleteUserStory(id) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.delete(
-      `http://10.0.1.64:8080/api/userStory/${id}`
+      apiUrl + `/api/userStory/${id}`
     );
     if (response.status === 200) {
       return response.data;
@@ -46,8 +49,9 @@ export async function deleteUserStory(id) {
 
 export async function deleteMultipleUserStories(ids) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/userStory/multiple",
+      apiUrl + "/api/userStory/multiple",
       ids
     );
     if (response.status === 200) {
@@ -62,8 +66,9 @@ export async function deleteMultipleUserStories(ids) {
 
 export async function deleteTask(id) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.delete(
-      `http://10.0.1.64:8080/api/task/${id}`
+      apiUrl + `/api/task/${id}`
     );
     if (response.status === 200) {
       return response.data;
@@ -77,8 +82,9 @@ export async function deleteTask(id) {
 
 export async function addTask(taskData) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.post(
-      "http://10.0.1.64:8080/api/task",
+      apiUrl + "/api/task",
       taskData
     );
     if (response.status === 200) {
@@ -93,8 +99,9 @@ export async function addTask(taskData) {
 
 export async function updateTask(taskData) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/task",
+      apiUrl + "/api/task",
       taskData
     );
     if (response.status === 200) {

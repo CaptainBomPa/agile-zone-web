@@ -7,8 +7,9 @@ export async function loginUser(credentials, setLoading) {
   setLoading(true);
   
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.post(
-      "http://10.0.1.64:8080/api/auth/authenticate", credentials
+      apiUrl + "/api/auth/authenticate", credentials
     );
     if (response.status === 200) {
       return response.data;

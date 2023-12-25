@@ -4,7 +4,8 @@ export default function UserStoryEdit() {}
 
 export async function getAllFeatures() {
   try {
-    const response = await axios.get("http://10.0.1.64:8080/api/feature");
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    const response = await axios.get(apiUrl + "/api/feature");
     if (response.status === 200) {
       return response.data;
     } else {
@@ -17,7 +18,8 @@ export async function getAllFeatures() {
 
 export async function getAllTags() {
   try {
-    const response = await axios.get("http://10.0.1.64:8080/api/tags");
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    const response = await axios.get(apiUrl + "/api/tags");
     if (response.status === 200) {
       return response.data;
     } else {
@@ -30,8 +32,9 @@ export async function getAllTags() {
 
 export async function getAllUsers() {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.get(
-      "http://10.0.1.64:8080/api/user/avatars"
+      apiUrl + "/api/user/avatars"
     );
     if (response.status === 200) {
       return response.data;
@@ -45,7 +48,8 @@ export async function getAllUsers() {
 
 export async function getAllProjects() {
   try {
-    const response = await axios.get("http://10.0.1.64:8080/api/project");
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    const response = await axios.get(apiUrl + "/api/project");
     if (response.status === 200) {
       return response.data;
     } else {
@@ -58,7 +62,8 @@ export async function getAllProjects() {
 
 export async function getAllTeams() {
   try {
-    const response = await axios.get("http://10.0.1.64:8080/api/team");
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    const response = await axios.get(apiUrl + "/api/team");
     if (response.status === 200) {
       return response.data;
     } else {
@@ -71,7 +76,8 @@ export async function getAllTeams() {
 
 export async function getAllIterations() {
   try {
-    const response = await axios.get("http://10.0.1.64:8080/api/iteration");
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    const response = await axios.get(apiUrl + "/api/iteration");
     if (response.status === 200) {
       return response.data;
     } else {
@@ -84,8 +90,9 @@ export async function getAllIterations() {
 
 export async function updateStory(story) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/userStory",
+      apiUrl + "/api/userStory",
       story
     );
     if (response.status === 200) {
@@ -101,7 +108,7 @@ export async function updateStory(story) {
 export async function addUserStory(userStory) {
   try {
     const response = await axios.post(
-      "http://10.0.1.64:8080/api/userStory",
+      apiUrl + "/api/userStory",
       userStory
     );
     if (response.status === 200) {

@@ -3,9 +3,10 @@ import axios from "axios";
 export default function UserInfo() {}
 
 export async function getUserInfo() {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
   try {
     const response = await axios.get(
-      `http://10.0.1.64:8080/api/user/myInfo`
+      apiUrl + `/api/user/myInfo`
     );
     if (response.status === 200) {
       return response.data;
@@ -18,9 +19,10 @@ export async function getUserInfo() {
 }
 
 export async function getUserAvatar() {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
   try {
     const response = await axios.get(
-      `http://10.0.1.64:8080/api/user/avatar`
+      apiUrl + `/api/user/avatar`
     );
     if (response.status === 200) {
       return response.data;
@@ -34,8 +36,9 @@ export async function getUserAvatar() {
 
 export async function updateUserInfo(userDetails) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.put(
-      `http://10.0.1.64:8080/api/user`,
+      apiUrl + `/api/user`,
       userDetails
     );
     if (response.status === 200) {
@@ -49,9 +52,10 @@ export async function updateUserInfo(userDetails) {
 }
 
 export async function updatePassword(oldPassword, newPassword) {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
   try {
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/user/password",
+      apiUrl + "/api/user/password",
       {
         oldPassword: oldPassword,
         newPassword: newPassword,
@@ -69,8 +73,9 @@ export async function updatePassword(oldPassword, newPassword) {
 
 export async function updateFullUser(user) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/user/full",
+      apiUrl + "/api/user/full",
       user
     );
     if (response.status === 200) {
@@ -85,8 +90,9 @@ export async function updateFullUser(user) {
 
 export async function getAllBlocked() {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.get(
-      "http://10.0.1.64:8080/api/user/blocked"
+      apiUrl + "/api/user/blocked"
     );
     if (response.status === 200) {
       return response.data;
@@ -100,8 +106,9 @@ export async function getAllBlocked() {
 
 export async function unlockUsers(users) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/user/unlock",
+      apiUrl + "/api/user/unlock",
       users
     );
     if (response.status === 200) {
@@ -116,8 +123,9 @@ export async function unlockUsers(users) {
 
 export async function removeUsers(users) {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.put(
-      "http://10.0.1.64:8080/api/user/block",
+      apiUrl + "/api/user/block",
       users
     );
     if (response.status === 200) {

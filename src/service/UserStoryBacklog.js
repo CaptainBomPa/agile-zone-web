@@ -4,8 +4,9 @@ export default function UserStoryBacklog() {}
 
 export async function getBacklogForCurrentUser() {
   try {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     const response = await axios.get(
-      "http://10.0.1.64:8080/api/iteration/backlog/current"
+      apiUrl + "/api/iteration/backlog/current"
     );
     if (response.status === 200) {
       return response.data;
@@ -20,7 +21,7 @@ export async function getBacklogForCurrentUser() {
 export async function getBacklogForTeam(teamId) {
   try {
     const response = await axios.get(
-      `http://10.0.1.64:8080/api/iteration/backlog/teamId/${teamId}`
+      apiUrl + `/api/iteration/backlog/teamId/${teamId}`
     );
     if (response.status === 200) {
       return response.data;
@@ -35,7 +36,7 @@ export async function getBacklogForTeam(teamId) {
 export async function getBacklogProject() {
   try {
     const response = await axios.get(
-      `http://10.0.1.64:8080/api/iteration/backlog/project`
+      apiUrl + `/api/iteration/backlog/project`
     );
     if (response.status === 200) {
       return response.data;

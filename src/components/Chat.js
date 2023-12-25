@@ -39,8 +39,9 @@ export default function Chat(props) {
   const fetchMessages = async (selectedUserId) => {
     if (selectedUserId && currentUser) {
       try {
+        const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
         const response = await fetch(
-          "http://10.0.1.64:8080/api/user/messages",
+          apiUrl + "/api/user/messages",
           {
             method: "POST",
             headers: {
@@ -71,7 +72,8 @@ export default function Chat(props) {
 
   useEffect(() => {
     fetchUsers();
-    const socket = new SockJS("http://10.0.1.64:8080/chat");
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080/';
+    const socket = new SockJS(apiUrl + "chat");
     const client = new Client({
       webSocketFactory: () => socket,
       beforeConnect: () => {

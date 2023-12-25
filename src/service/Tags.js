@@ -3,9 +3,10 @@ import axios from "axios";
 export default function Tags() {}
 
 export async function getAllTagsWithStats() {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
   try {
     const response = await axios.get(
-      "http://10.0.1.64:8080/api/tags/stats"
+      apiUrl + "/api/tags/stats"
     );
     if (response.status === 200) {
       return response.data;
@@ -18,8 +19,9 @@ export async function getAllTagsWithStats() {
 }
 
 export async function addNewTag(tagName) {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
   try {
-    const response = await axios.post("http://10.0.1.64:8080/api/tags", {
+    const response = await axios.post(apiUrl + "/api/tags", {
       tagName,
     });
     if (response.status === 200) {
@@ -33,8 +35,9 @@ export async function addNewTag(tagName) {
 }
 
 export async function removeTag(tagId) {
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
     try {
-      const response = await axios.delete(`http://10.0.1.64:8080/api/tags/${tagId}`);
+      const response = await axios.delete(apiUrl + `api/tags/${tagId}`);
       if (response.status === 200) {
         return response.data;
       } else {
