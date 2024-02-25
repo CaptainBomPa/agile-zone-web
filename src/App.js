@@ -23,6 +23,7 @@ import { UserRolesProvider } from "./service/UserRolesProvider";
 import ManageTags from "./components/ManageTags";
 import FeatureWrapper from "./components/FeatureWrapper";
 import Chat from "./components/Chat";
+import PlanPoker from "./components/PlanPoker";
 
 function App() {
   const [navOpen, setNavOpen] = useState(false);
@@ -216,6 +217,7 @@ function App() {
             <Route path="manage-tags" element={<ManageTags />} />
             <Route path="request-add-user" element={<RequestAdd />} />
             <Route path="/chat" element={<Chat token={token} currentUser={userDetails} />} />
+            <Route path="/plan-poker" element={<PlanPoker token={token} currentUser={userDetails}/>} />
             <Route path="*" element={<Nopage />} />
           </Routes>
         </Box>
