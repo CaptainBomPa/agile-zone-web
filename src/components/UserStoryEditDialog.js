@@ -126,7 +126,9 @@ export default function UserStoryEditDialog(props) {
   const handleVisibleOwners = (team) => {
     if (selectedTeam === team) return;
     setSelectedOwner(null);
-    setVisibleOwners(owners.filter((owner) => owner.team?.id === team.id));
+    setVisibleOwners(owners.filter(
+      (owner) => owner.team?.id === team.id)
+    );
   };
 
   const handleUpdate = () => {

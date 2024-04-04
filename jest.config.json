@@ -1,0 +1,1 @@
+"moduleNameMapper": { "^axios$": "<rootDir>/node_modules/axios/dist/node/axios.cjs" }

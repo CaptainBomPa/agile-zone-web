@@ -87,22 +87,27 @@ export default function Chat(props) {
     
 
     client.onConnect = () => {
-      client.subscribe("/topic/messages", (message) => {
+      client.subscribe(`/topic/${currentUser?.id}/messages`, (message) => {
         const receivedMessage = JSON.parse(message.body);
-        console.log(receivedMessage);
-        console.log(currentUser);
-        console.log(selectedUserId);
-        if (
-          (receivedMessage.sender.id === currentUser.id &&
-            receivedMessage.receiver.id === selectedUserId) ||
-          (receivedMessage.receiver.id === currentUser.id &&
-            receivedMessage.sender.id === selectedUserId)
-        ) {
-          setMessages((prevMessages) => [...prevMessages, receivedMessage]);
-        }
+        processMessage(receivedMessage)
+      });
+      client.subscribe(`/topic/${selectedUserId}/messages`, (message) => {
+        const receivedMessage = JSON.parse(message.body);
+        processMessage(receivedMessage)
       });
       setStompClient(client);
     };
+
+    const processMessage = (message) => {
+      if (
+        (message.sender.id === currentUser.id &&
+          message.receiver.id === selectedUserId) ||
+        (message.receiver.id === currentUser.id &&
+          message.sender.id === selectedUserId)
+      ) {
+        setMessages((prevMessages) => [...prevMessages, message]);
+      }
+    }
 
     client.onStompError = (frame) => {
       console.error("Broker reported error: " + frame.headers["message"]);
@@ -139,6 +144,8 @@ export default function Chat(props) {
           Authorization: `Bearer ${token}`,
         },
       });
+
+      
       setMessage("");
     }
   };

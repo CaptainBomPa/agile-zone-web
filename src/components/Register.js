@@ -69,28 +69,32 @@ export default function Register(props) {
       .post(apiUrl + "/api/user", registerRequest)
       .then((response) => {
         if (response.status === 200) {
-          showAutoHideAlert(
-            "Registration request send successful",
-            "success",
-            5000
-          );
+          showSuccessAlert()
           setOnRegisterForm(false);
         } else {
-          showAutoHideAlert(
-            "Error during sendng registration request",
-            "error",
-            5000
-          );
+          showErrorAlert()
         }
       })
       .catch((error) => {
-        showAutoHideAlert(
-          "Error during sendng registration request",
-          "error",
-          5000
-        );
+        showErrorAlert()
       });
   };
+
+  const showSuccessAlert = () => {
+    showAutoHideAlert(
+      "Registration request sent successfully",
+      "success",
+      5000
+    );
+  }
+
+  const showErrorAlert = () => {
+    showAutoHideAlert(
+      "Error during sendng registration request",
+      "error",
+      5000
+    );
+  }
 
   return (
     <ThemeProvider theme={getLoginTheme(useDarkMode)}>
