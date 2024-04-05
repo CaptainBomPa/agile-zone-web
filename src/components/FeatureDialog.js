@@ -53,7 +53,6 @@ export default function FeatureDialog(props) {
   };
 
   const handleAdd = async () => {
-    console.log(userDetails);
     const newFeature = {
       featureName: featureName,
       project: userDetails.project,

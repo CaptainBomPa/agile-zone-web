@@ -22,9 +22,11 @@ describe('RequestAdd Component', () => {
                 <RequestAdd />
             </ThemeProvider>
         );
-
         expect(await screen.findByText('User1')).toBeInTheDocument();
         expect(await screen.findByText('User2')).toBeInTheDocument();
+        expect(await screen.findByText('ID')).toBeInTheDocument();
+        expect(await screen.findByText('Username')).toBeInTheDocument();
+        expect(await screen.findByText('Accepts users')).toBeInTheDocument();
+        expect(await screen.findByText('Delete requests and users')).toBeInTheDocument();
     });
-
 });

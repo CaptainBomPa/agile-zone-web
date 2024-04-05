@@ -224,7 +224,7 @@ export default function PlanPoker(props) {
               <ListItemText
                 primary={`${entry.user.firstName} ${entry.user.lastName}`}
                 secondary={
-                  entry.vote > 0 ? `Voted - ${entry.vote}` : "Not voted yet"
+                  entry.vote > 0 ? `Voted - ${lobbyStarted ? "?" : entry.vote}` : "Not voted yet"
                 }
               />
             </ListItem>
